@@ -5,7 +5,7 @@ SECTIONS
     .text :
     {
         KEEP(*(.text.boot))
-        *(.text)
+        *(.text*)
     }
     . = ALIGN(4096); /* align to page size */
     __text_end = .;
@@ -13,7 +13,7 @@ SECTIONS
     __rodata_start = .;
     .rodata :
     {
-        *(.rodata)
+        *(.rodata*)
     }
     . = ALIGN(4096); /* align to page size */
     __rodata_end = .;
@@ -21,7 +21,7 @@ SECTIONS
     __data_start = .;
     .data :
     {
-        *(.data)
+        *(.data*)
     }
     . = ALIGN(4096); /* align to page size */
     __data_end = .;
@@ -30,7 +30,7 @@ SECTIONS
     .bss :
     {
         bss = .;
-        *(.bss)
+        *(.bss*)
     }
     . = ALIGN(4096); /* align to page size */
     __bss_end = .;
