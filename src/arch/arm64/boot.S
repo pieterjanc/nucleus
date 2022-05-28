@@ -55,6 +55,10 @@ _el1_entry:
         ldr     x0, =_start
         mov     sp, x0
 
+        // setup vector table for handling exceptions
+        ldr     x1, = _vector_table
+        msr     vbar_el1, x1
+
         // clear BSS
         ldr     x0, =__bss_start
         ldr     w1, =__bss_size
